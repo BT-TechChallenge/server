@@ -12,6 +12,23 @@ app.get("/api/weather/:location", (request, res) => {
 
   axios
     .get(
+      `http://api.weatherapi.com/v1/current.json?key=cfbd919a9ea249db831213031231502&q=${locationRequest}&aqi=no`
+    )
+    .then((response) => {
+      const data = response.data;
+      res.json(data);
+    })
+    .catch((error) => {
+      console.log(error);
+      response.status(500).send("Error retrieving data from third-party API");
+    });
+});
+
+app.get("/api/weather/:location/forecast", (request, res) => {
+  const locationRequest = request.params.location;
+
+  axios
+    .get(
       `http://api.weatherapi.com/v1/forecast.json?key=cfbd919a9ea249db831213031231502&q=${locationRequest}&days=14&aqi=no&alerts=no`
     )
     .then((response) => {
