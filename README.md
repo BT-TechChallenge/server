@@ -15,8 +15,8 @@ Bluetread Tech Challenge<br/>
 
 ENDPOINTS:
 
-`/:location` for current weather<br>
-`/:location/forecast` for 14 day forecast<br>
+`/api/weather/:location` for current weather<br>
+`/api/weather/:location/forecast` for 14 day forecast<br>
 </div>
 
 ## ⚡️ <b>Getting Started:</b>
